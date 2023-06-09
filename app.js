@@ -103,6 +103,7 @@ function adjustColour (e) {
     }
 }
 
+// Generates random number between 0 to 255 inclusive (for RGB randomisation)
 function randomNum () {
     return Math.floor(Math.random() * 256);
 }
