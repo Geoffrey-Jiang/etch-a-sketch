@@ -1,11 +1,36 @@
 body {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    margin: 0;
+    font-family: Roboto, system-ui, sans-serif;
+}
+
+#controls {
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     gap: 64px;
 }
 
+.header, .footer {
+    background-color: #aaaaaa;
+    text-align: center;
+    padding: 4px;
+}
+
+.header {
+    font-size: 24px;
+    padding: 8px;
+}
+
+.footer {
+    font-size: 12px;
+}
+
+
+/* BUTTONS*/
 #buttons {
     display: flex;
     flex-direction: column;
@@ -15,10 +40,31 @@ body {
 }
 
 button {
-    width: 128px;
-    height: 36px;    
+    width: 248px;
+    height: 36px;   
+    font-family: Roboto, system-ui, sans-serif; 
+    border: 2px solid black;
+    border-radius: 8px;
 }
 
+button:hover {
+    border: 3px solid gold;
+    background-color: #cccccc;
+}
+
+#colors button {
+    width: 80px;
+    height: 36px;
+    margin: 0;
+}
+
+#colors {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+/* GRID */
 .grid_row {
     display: flex;
     flex-direction: column;
@@ -35,13 +81,10 @@ button {
     display: flex;
     width: 480px;
     height: 480px;
+    flex-shrink: 0;
 }
 
 /* EFFECTS */
-
-.add_color {
-    background-color: black;
-}
 
 
 .hover {
