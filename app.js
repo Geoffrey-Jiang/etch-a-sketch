@@ -1,3 +1,13 @@
+let isDown = false;
+const body = document.querySelector("body");
+body.addEventListener("mousedown", () => {
+    isDown = true;
+})
+
+body.addEventListener("mouseup", () => {
+    isDown = false;
+})
+
 function createGrid(size) {
     const grid = document.querySelector('#grid_square');
     // Remove previous grid
@@ -19,31 +29,36 @@ function createGrid(size) {
             grid_col.classList.toggle('grid');
             grid_row.appendChild(grid_col);
 
-            // Create event listeners for coloring
-            grid_col.addEventListener("click", (e) => {
-                e.target.classList.add('add_color');
-            })
-
-            // Create event listeners for hovering effect
+            // Create event listeners for hovering effect or click
             // Toggles .hover class
             grid_col.addEventListener("mouseenter", (e) => {
-                e.target.classList.toggle('hover');
+                if (isDown === false) {
+                    e.target.classList.add('hover');
+                } else {
+                    e.target.classList.add('add_color');
+                }
             })
 
             grid_col.addEventListener("mouseleave", (e) => {
-                e.target.classList.toggle('hover');
+                e.target.classList.remove('hover');
             })   
         }
         grid.appendChild(grid_row);
     }
 }
 
-createGrid(16);
+let size = 16;
+createGrid(size);
 
-const sizeAdjuster = document.querySelector("#size");
-sizeAdjuster.addEventListener("click", () => {
-    let size = prompt("What would you like the new size to be?");
+// Resize using createGrid function and detect click and prompt user
+document.getElementById("size").onclick = function () {
+    size = prompt("What would you like the new size to be?");
     if (size >= 1 && size <= 100) {
         createGrid(size);
     }
-})
+}
+
+// Reset canvas by creating fresh one
+document.getElementById("reset").onclick = function () {
+    createGrid(size);
+}

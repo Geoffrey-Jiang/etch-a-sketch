@@ -1,3 +1,24 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 64px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+button {
+    width: 128px;
+    height: 36px;    
+}
+
 .grid_row {
     display: flex;
     flex-direction: column;
@@ -9,6 +30,15 @@
     border: 0;
 }
 
+#grid_square {
+    border: 2px solid black;
+    display: flex;
+    width: 480px;
+    height: 480px;
+}
+
+/* EFFECTS */
+
 .add_color {
     background-color: black;
 }
@@ -18,9 +48,3 @@
     background-color: #eeeeee;
 }
 
-#grid_square {
-    border: 2px solid black;
-    display: flex;
-    width: 240px;
-    height: 240px;
-}
