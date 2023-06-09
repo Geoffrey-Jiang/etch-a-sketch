@@ -84,6 +84,15 @@ function createGrid(size) {
     }
 }
 
+/* 
+IDEAS:
+- Add eraser
+- Add colour palette pen colour
+- Improve styling of the app
+- Add optional background colour
+- Transitions to background colour when canvas is reset
+*/
+
 // Adjusts colour based on colour selected
 function adjustColour (e) {
     if (colour === BLACK) {
