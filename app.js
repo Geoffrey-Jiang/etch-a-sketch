@@ -99,13 +99,17 @@ function adjustColour (e) {
         e.target.style['background-color'] = "rgba(0, 0, 0, 1)"
     } else if (colour === SHADE) {
         const colour = e.target.style['background-color'];
+        // Return if colour is already black
+        if (colour === "rgb(0, 0, 0)") return;
+
         // Either extracts " 0" or ".x" and converts it to a decimal successfully
         let alpha_value = Number(colour.slice(colour.length - 3, colour.length - 1));
 
-        // Hmmm... I can't get the alpha value to sit at 1.
-        // When it adds 0.1 to 0.9, it jumps to 1
+        // Increment alpha value or set directly to black 
         if (alpha_value !== 0.9 && alpha_value !== 1) {
             e.target.style['background-color'] = `rgba(0, 0, 0, ${alpha_value + 0.1})`;
+        } else if (alpha_value === 0.9) {
+            e.target.style['background-color'] = 'rgb(0, 0, 0)';
         }
     } else if (colour === RAINBOW) {
         e.target.style['background-color'] = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`
